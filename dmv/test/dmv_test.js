@@ -1,4 +1,5 @@
 var DMV = require('../dmv');
+var expect = require('chai').expect;
 
 describe('DMV', ()=> {
 
@@ -6,10 +7,10 @@ describe('DMV', ()=> {
     it("adds a customer to the line", ()=> {
       var dmv = new DMV(["Surly Steve", "Angry Amy", "Peeved Pete"]);
 
-      expect(dmv.customersInLine()).toEqual([]);
+      expect(dmv.customersInLine()).to.deep.equal([]);
 
       dmv.enter("Drivin' Dave");
-      expect(dmv.customersInLine()).toEqual(["Drivin' Dave"]);
+      expect(dmv.customersInLine()).to.deep.equal(["Drivin' Dave"]);
     });
   });
 
@@ -20,20 +21,20 @@ describe('DMV', ()=> {
   //   dmv.enter("Speedy Spencer");
   //   dmv.enter("Talkin' Tammy");
   //
-  //   expect(dmv.currentCustomerFor("Surly Suneel")).toEqual(null);
+  //   expect(dmv.currentCustomerFor("Surly Suneel")).to.equal(null);
   //
   //   dmv.nextCustomer();
-  //   expect(dmv.currentCustomerFor("Surly Suneel")).toEqual("Drivin' Dave");
-  //   expect(dmv.customersInLine()).toEqual(["Speedy Spencer", "Talkin' Tammy"]);
+  //   expect(dmv.currentCustomerFor("Surly Suneel")).to.equal("Drivin' Dave");
+  //   expect(dmv.customersInLine()).to.deep.equal(["Speedy Spencer", "Talkin' Tammy"]);
   //
   //   dmv.nextCustomer();
-  //   expect(dmv.currentCustomerFor("Surly Suneel")).toEqual("Drivin' Dave");
-  //   expect(dmv.currentCustomerFor("Angry Angelica")).toEqual("Speedy Spencer");
-  //   expect(dmv.customersInLine()).toEqual(["Talkin' Tammy"]);
+  //   expect(dmv.currentCustomerFor("Surly Suneel")).to.equal("Drivin' Dave");
+  //   expect(dmv.currentCustomerFor("Angry Angelica")).to.equal("Speedy Spencer");
+  //   expect(dmv.customersInLine()).to.deep.equal(["Talkin' Tammy"]);
   //
   //   dmv.nextCustomer();
-  //   expect(dmv.currentCustomerFor("Peeved Petra")).toEqual("Talkin' Tammy");
-  //   expect(dmv.customersInLine()).toEqual([]);
+  //   expect(dmv.currentCustomerFor("Peeved Petra")).to.equal("Talkin' Tammy");
+  //   expect(dmv.customersInLine()).to.deep.equal([]);
   // });
   //
   // it("allows you to resolve an issue, which frees an agent up for the next customer", ()=> {
@@ -43,14 +44,14 @@ describe('DMV', ()=> {
   //   dmv.enter("Drivin' Dave");
   //   dmv.nextCustomer();
   //   dmv.nextCustomer();
-  //   expect(dmv.currentCustomerFor("Angry Angelica")).toEqual("Drivin' Dave");
+  //   expect(dmv.currentCustomerFor("Angry Angelica")).to.equal("Drivin' Dave");
   //
   //   dmv.resolve("Drivin' Dave");
-  //   expect(dmv.currentCustomerFor("Angry Angelica")).toEqual(null);
+  //   expect(dmv.currentCustomerFor("Angry Angelica")).to.equal(null);
   //
   //   dmv.enter("Texting Ty");
   //   dmv.nextCustomer();
-  //   expect(dmv.currentCustomerFor("Angry Angelica")).toEqual("Texting Ty");
+  //   expect(dmv.currentCustomerFor("Angry Angelica")).to.equal("Texting Ty");
   // });
 
 });
