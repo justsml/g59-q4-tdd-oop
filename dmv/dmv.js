@@ -1,7 +1,9 @@
 function DMV(agents) {
+  
 };
 
-DMV.prototype.customersInLine = function () {
+DMV.prototype.customersInLine = function (customer) {
+
 };
 
 module.exports = DMV;
