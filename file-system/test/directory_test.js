@@ -2,58 +2,58 @@ var Directory = require('../directory')
 var expect = require('chai').expect
 
 describe('Directory', () => {
-  // it('has a name', () => {
-  //   var directory = new Directory('workspace')
-  //   expect(directory.name).to.equal('workspace')
-  //
-  //   directory = new Directory('filestuff')
-  //   expect(directory.name).to.equal('filestuff')
-  // })
-  //
-  // it('returns filenames in order with ls', () => {
-  //   var directory = new Directory('workspace')
-  //   expect(directory.ls()).to.deep.equal([])
-  //
-  //   directory.write('foo.txt', 'w00t!')
-  //   expect(directory.ls()).to.deep.equal(['foo.txt'])
-  //
-  //   directory.write('bar.txt', 'Hello world')
-  //   expect(directory.ls()).to.have.members(['bar.txt', 'foo.txt'])
-  // })
-  //
-  // it('returns filenames with size with ls_la', () => {
-  //   var directory = new Directory('workspace')
-  //   expect(directory.ls_la()).to.deep.equal([])
-  //
-  //   directory.write('foo.txt', 'w00t!')
-  //   expect(directory.ls_la()).to.deep.equal(['foo.txt - 5'])
-  //
-  //   directory.write('bar.txt', 'Hello world')
-  //   expect(directory.ls_la()).to.have.members(['bar.txt - 11', 'foo.txt - 5'])
-  // })
-  //
-  // it('returns the content of the given file with cat', () => {
-  //   var directory = new Directory('workspace')
-  //
-  //   directory.write('foo.txt', 'w00t!')
-  //   directory.ls()
-  //   expect(directory.cat('foo.txt')).to.equal('w00t!')
-  //   directory.write('bar.txt', 'Hello world')
-  //   directory.ls()
-  //   console.log("directory._ls: ", directory._ls, "\nCatBar", directory.cat('bar.txt'))
-  //   expect(directory.cat('bar.txt')).to.equal('Hello world')
-  //
-  // })
-  //
-  // it('changes the name of a given file to another name with mv', () => {
-  //   var directory = new Directory('workspace')
-  //
-  //   directory.write('bar.txt', 'Hello world')
-  //   directory.mv('bar.txt', 'foo.txt')
-  //
-  //   expect(directory.cat('foo.txt')).to.equal('Hello world')
-  //   expect(directory.ls()).to.deep.equal(['foo.txt'])
-  // })
+  it('has a name', () => {
+    var directory = new Directory('workspace')
+    expect(directory.name).to.equal('workspace')
+
+    directory = new Directory('filestuff')
+    expect(directory.name).to.equal('filestuff')
+  })
+
+  it('returns filenames in order with ls', () => {
+    var directory = new Directory('workspace')
+    expect(directory.ls()).to.deep.equal([])
+
+    directory.write('foo.txt', 'w00t!')
+    expect(directory.ls()).to.deep.equal(['foo.txt'])
+
+    directory.write('bar.txt', 'Hello world')
+    expect(directory.ls()).to.have.members(['bar.txt', 'foo.txt'])
+  })
+
+  it('returns filenames with size with ls_la', () => {
+    var directory = new Directory('workspace')
+    expect(directory.ls_la()).to.deep.equal([])
+
+    directory.write('foo.txt', 'w00t!')
+    expect(directory.ls_la()).to.deep.equal(['foo.txt - 5'])
+
+    directory.write('bar.txt', 'Hello world')
+    expect(directory.ls_la()).to.have.members(['bar.txt - 11', 'foo.txt - 5'])
+  })
+
+  it('returns the content of the given file with cat', () => {
+    var directory = new Directory('workspace')
+
+    directory.write('foo.txt', 'w00t!')
+    directory.ls()
+    expect(directory.cat('foo.txt')).to.equal('w00t!')
+    directory.write('bar.txt', 'Hello world')
+    directory.ls()
+    console.log("directory._ls: ", directory._ls, "\nCatBar", directory.cat('bar.txt'))
+    expect(directory.cat('bar.txt')).to.equal('Hello world')
+
+  })
+
+  it('changes the name of a given file to another name with mv', () => {
+    var directory = new Directory('workspace')
+
+    directory.write('bar.txt', 'Hello world')
+    directory.mv('bar.txt', 'foo.txt')
+
+    expect(directory.cat('foo.txt')).to.equal('Hello world')
+    expect(directory.ls()).to.deep.equal(['foo.txt'])
+  })
 
   it('copies one object to another with cp', () => {
     var directory = new Directory('workspace')
