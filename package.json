@@ -1,20 +1,24 @@
 {
-  "name": "programming-oop-tdd",
-  "version": "1.0.0",
+  "name": "g59-q4-tdd-oop",
+  "version": "1.2.1",
   "description": "Test driven OOP exercises.",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha '*/test/*test.js'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gSchool/programming-oop-tdd.git"
+    "url": "git+https://github.com/justsml/g59-q4-tdd-oop.git"
+  },
+  "author": {
+    "name": "Dan Levy",
+    "email": "dan@danlevy.net"
   },
   "keywords": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gSchool/programming-oop-tdd/issues"
+    "url": "https://github.com/justsml/g59-q4-tdd-oop/issues"
   },
-  "homepage": "https://github.com/gSchool/programming-oop-tdd#readme",
+  "homepage": "https://github.com/justsml/g59-q4-tdd-oop#readme",
   "dependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
