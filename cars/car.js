@@ -1,7 +1,9 @@
-var Car = function (mpg) {
-};
+module.exports = Car
 
-Car.prototype.fill = function (gallons) {
-};
+function Car(mpg) {
 
-module.exports = Car;
+}
+
+Car.prototype.fill = function(gallons) {
+
+}

@@ -1,7 +1,9 @@
-var Directory = function (name) {
-};
+function Directory(name) {
 
-Directory.prototype.ls = function () {
-};
+}
 
-module.exports = Directory;
+Directory.prototype.ls = function() {
+
+}
+
+module.exports = Directory
