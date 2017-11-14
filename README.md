@@ -1,5 +1,7 @@
 # g59-q4-tdd-oop
 
+[![Build Status](https://travis-ci.org/justsml/g59-q4-tdd-oop.svg?branch=master)](https://travis-ci.org/justsml/g59-q4-tdd-oop)
+
 Test driven OOP exercises.
 
 ## Complete the needed code/classes to pass the tests.
