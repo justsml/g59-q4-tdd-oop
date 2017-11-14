@@ -1,4 +1,4 @@
-function DMV(agents) {
+var DMV = function (agents) {
 };
 
 DMV.prototype.customersInLine = function () {

@@ -1,9 +1,7 @@
-module.exports = Car
+var Car = function (mpg) {
+};
 
-function Car(mpg) {
+Car.prototype.fill = function (gallons) {
+};
 
-}
-
-Car.prototype.fill = function(gallons) {
-
-}
+module.exports = Car;

@@ -1,9 +1,7 @@
-function Robot(startCharge) {
-
-}
+var Robot = function (startCharge) {
+};
 
 Robot.prototype.position = function() {
+};
 
-}
-
-module.exports = Robot
+module.exports = Robot;
