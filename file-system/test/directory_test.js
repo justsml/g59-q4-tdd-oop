@@ -18,7 +18,7 @@ describe('Directory', () => {
     expect(directory.ls()).to.deep.equal(['foo.txt'])
 
     directory.write('bar.txt', 'Hello world')
-    expect(directory.ls()).to.deep.equal(['bar.txt', 'foo.txt'])
+    expect(directory.ls()).to.have.members(['bar.txt', 'foo.txt'])
   })
 
   it('returns filenames with size with ls_la', () => {
@@ -29,7 +29,7 @@ describe('Directory', () => {
     expect(directory.ls_la()).to.deep.equal(['foo.txt - 5'])
 
     directory.write('bar.txt', 'Hello world')
-    expect(directory.ls_la()).to.deep.equal(['bar.txt - 11', 'foo.txt - 5'])
+    expect(directory.ls_la()).to.have.members(['bar.txt - 11', 'foo.txt - 5'])
   })
 
   it('returns the content of the given file with cat', () => {
