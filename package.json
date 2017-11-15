@@ -3,7 +3,7 @@
   "version": "1.2.1",
   "description": "Test driven OOP exercises.",
   "scripts": {
-    "test": "mocha 'robots/test/*test.js'"
+    "test": "mocha 'dmv/test/*test.js'"
   },
   "repository": {
     "type": "git",
