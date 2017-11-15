@@ -1,8 +1,3 @@
-// ES 5 Object/'Class' using prototype - JS original recipe
-// 1) sends customers to the next available agent
-// 2) allows you to resolve an issue, which frees an agent up for the next customer enter
-// 3) adds a customer to the line
-
 function DMV(agents) {
   this.agents = agents;
   this.attendingTo = {};
@@ -21,12 +16,12 @@ DMV.prototype.enter = function(customer) {
   this.customers.push(customer);
 };
 
-// SET 'customersInLine' TO EQUAL THE CUSTOMERS ARRAY
+// SETS 'customersInLine' TO EQUAL THE CUSTOMERS ARRAY
 DMV.prototype.customersInLine = function() {
   return this.customers;
 };
 
-// SET THE
+// SETS THE 'attendingTo' VARIABLE TO EQUAL THE NEXT AVAILIBLE AGENT
 DMV.prototype.currentCustomerFor = function(agent) {
   return this.attendingTo[agent];
 };
@@ -41,6 +36,8 @@ DMV.prototype.nextCustomer = function() {
   }
 };
 
+// THIS WILL CHECK IF THE VALUE OF 'attendingTo' IS 'customer', AND IF IT IS, IT WILL RESET IT
+// BACK TO 'null' TO REPRESENT THAT THE 'customer' INTERACTION IS RESOLVED
 DMV.prototype.resolve = function(customer) {
   for (agent in this.attendingTo) {
     if (this.attendingTo[agent] === customer) {
