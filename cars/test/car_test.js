@@ -4,7 +4,7 @@ var expect = require('chai').expect
 describe('Car', function() {
   describe('#fill', function() {
     it('gives the car gas', function() {
-      var car = new Car(10)
+      var car = new Car(0)
       expect(car.gallons).to.equal(0)
 
       car.fill(5)
@@ -17,7 +17,7 @@ describe('Car', function() {
 
   it('uses gas when driving', function() {
     // formula for how gas used is miles / mpg
-    var car = new Car(10)
+    var car = new Car(0)
     car.fill(10)
     expect(car.gallons).to.equal(10)
     car.drive(50)
@@ -25,7 +25,7 @@ describe('Car', function() {
   })
 
   it('increments the odometer when driving', function() {
-    var car = new Car(10)
+    var car = new Car(20)
     expect(car.odometer).to.equal(0)
     car.drive(50)
     expect(car.odometer).to.equal(50)
