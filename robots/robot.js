@@ -23,6 +23,7 @@ Robot.prototype.moveUp = function(x) {
   this._position[1] = this._position[1] +1;
 }
 
+
 Robot.prototype.history = function() {
   return this._history
 }
