@@ -6,6 +6,7 @@ function DMV(agents) {
 
 DMV.prototype.enter = function(customer) {
 	this.inLine.push(customer)
+
 }
 
 DMV.prototype.customersInLine = function() {
@@ -33,7 +34,12 @@ DMV.prototype.nextCustomer = function() {
 }
 
 DMV.prototype.resolve = function(customer) {
-  
+  for (var i = 0; i < this.assignedCustomer.length; i++) {
+    if (this.assignedCustomer[i].customer === customer){
+      this.agents.push(this.assignedCustomer[i].agent)
+			this.assignedCustomer.splice(1)
+    }
+  }
 }
 
 module.exports = DMV;
