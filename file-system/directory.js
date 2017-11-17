@@ -8,8 +8,9 @@ function Directory(name) {
 Directory.prototype.write = function(name, data) {
   if (this.files[name]) {
     this.files[name].data = data
+  } else {
+    this.files[name] = {data}
   }
-  this.files[name] = {data}
 }
 
 Directory.prototype.ls = function() {
