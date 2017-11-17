@@ -46,6 +46,7 @@ describe('DMV', () => {
     expect(dmv.currentCustomerFor("Angry Angelica")).to.equal("Drivin' Dave");
 
     dmv.resolve("Drivin' Dave");
+    
     expect(dmv.currentCustomerFor("Angry Angelica")).to.equal(null);
 
     dmv.enter("Texting Ty");

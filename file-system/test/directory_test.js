@@ -18,7 +18,7 @@ describe('Directory', () => {
     expect(directory.ls()).to.deep.equal(['foo.txt'])
 
     directory.write('bar.txt', 'Hello world')
-    expect(directory.ls()).to.deep.equal(['bar.txt', 'foo.txt'])
+    expect(directory.ls()).to.have.members(['bar.txt', 'foo.txt'])
   })
 
   it('returns filenames with size with ls_la', () => {
@@ -29,18 +29,20 @@ describe('Directory', () => {
     expect(directory.ls_la()).to.deep.equal(['foo.txt - 5'])
 
     directory.write('bar.txt', 'Hello world')
-    expect(directory.ls_la()).to.deep.equal(['bar.txt - 11', 'foo.txt - 5'])
+    expect(directory.ls_la()).to.have.members(['bar.txt - 11', 'foo.txt - 5'])
   })
 
   it('returns the content of the given file with cat', () => {
     var directory = new Directory('workspace')
 
     directory.write('foo.txt', 'w00t!')
+    directory.ls()
     expect(directory.cat('foo.txt')).to.equal('w00t!')
-
     directory.write('bar.txt', 'Hello world')
     directory.ls()
+    console.log("directory._ls: ", directory._ls, "\nCatBar", directory.cat('bar.txt'))
     expect(directory.cat('bar.txt')).to.equal('Hello world')
+
   })
 
   it('changes the name of a given file to another name with mv', () => {
@@ -59,8 +61,8 @@ describe('Directory', () => {
     directory.write('bar.txt', 'Hello world')
     directory.cp('bar.txt', 'foo.txt')
     directory.write('bar.txt', "I've changed")
-
     expect(directory.cat('foo.txt')).to.equal('Hello world')
+    console.log("test: ", directory._cat)
     expect(directory.cat('bar.txt')).to.equal("I've changed")
     expect(directory.ls()).to.deep.equal(['bar.txt', 'foo.txt'])
   })
