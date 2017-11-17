@@ -12,7 +12,7 @@ describe('Directory', () => {
 
   it('returns filenames in order with ls', () => {
     var directory = new Directory('workspace')
-    expect(directory.ls()).to.deep.equal([])
+    expect(directory.ls()).to.have.members([])
 
     directory.write('foo.txt', 'w00t!')
     expect(directory.ls()).to.deep.equal(['foo.txt'])
@@ -26,7 +26,7 @@ describe('Directory', () => {
     expect(directory.ls_la()).to.deep.equal([])
 
     directory.write('foo.txt', 'w00t!')
-    expect(directory.ls_la()).to.deep.equal(['foo.txt - 5'])
+    expect(directory.ls_la()).to.have.members(['foo.txt - 5'])
 
     directory.write('bar.txt', 'Hello world')
     expect(directory.ls_la()).to.have.members(['bar.txt - 11', 'foo.txt - 5'])
@@ -50,7 +50,7 @@ describe('Directory', () => {
     directory.mv('bar.txt', 'foo.txt')
 
     expect(directory.cat('foo.txt')).to.equal('Hello world')
-    expect(directory.ls()).to.deep.equal(['foo.txt'])
+    expect(directory.ls()).to.have.members(['foo.txt'])
   })
 
   it('copies one object to another with cp', () => {
@@ -72,8 +72,9 @@ describe('Directory', () => {
     directory.ln_s('bar.txt', 'foo.txt')
     directory.write('bar.txt', "I've changed")
 
+
     expect(directory.cat('foo.txt')).to.equal("I've changed")
     expect(directory.cat('bar.txt')).to.equal("I've changed")
-    expect(directory.ls()).to.deep.equal(['bar.txt', 'foo.txt'])
+    expect(directory.ls()).to.have.members(['bar.txt', 'foo.txt'])
   })
 })

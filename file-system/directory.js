@@ -17,7 +17,11 @@ Directory.prototype.ls_la = function() {
 
 Directory.prototype.cat = function(fileName) {
   let file = this._ls.find(f_data => (f_data.file === fileName))
-  return file.data
+  if (file.link) {
+    return file.link.data
+  } else {
+    return file.data
+  }
 }
 
 Directory.prototype.mv = function(fileName, newFileName) {
@@ -36,11 +40,18 @@ Directory.prototype.cp = function (originalName, copyName) {
 
 Directory.prototype.write = function(file, data) {
   let fileMatch = this._ls.find(f_data => (f_data.file === file))
-  console.log('fileMatch', fileMatch);
   if (fileMatch) {
     fileMatch.data = data
+  }else if (this._ls.link) {
+    this._ls.link.data = this._ls.data;
   } else {
     this._ls.push({file, data})
   }
   this._ls_la.push(file + " - " + data.length)
+}
+
+Directory.prototype.ln_s = function (fileName, newFile) {
+  let file = this._ls.find(f_data => (f_data.file === fileName))
+  file = Object.assign({}, {file:newFile, link:file})
+  this._ls.push(file)
 }

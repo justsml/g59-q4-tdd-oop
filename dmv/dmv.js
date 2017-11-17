@@ -13,6 +13,10 @@ DMV.prototype.enter = function (customer) {
 }
 
 DMV.prototype.nextCustomer = function () {
+  if (this.inLine.length === 0) {
+    throw new Error("no customers")
+  }
+
   let nextAvailiableAgent = this.agents.shift()
   let nextCustomer = this.inLine.shift()
 
