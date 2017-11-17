@@ -5,6 +5,7 @@ describe('Car', function() {
   describe('#fill', function() {
     it('gives the car gas', function() {
       var car = new Car(10)
+
       expect(car.gallons).to.equal(0)
 
       car.fill(5)

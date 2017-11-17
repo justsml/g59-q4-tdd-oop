@@ -2,7 +2,7 @@ var Robot = require('../robot')
 var expect = require('chai').expect
 
 describe('Robot', () => {
-  it('starts off at position 0,0 and the battery power given', () => {
+  xit('starts off at position 0,0 and the battery power given', () => {
     var robot = new Robot(17)
 
     expect(robot.position()).to.deep.equal([0, 0])
@@ -10,7 +10,7 @@ describe('Robot', () => {
     expect(robot.battery()).to.equal(17)
   })
 
-  it('can move up', function() {
+  xit('can move up', function() {
     var robot = new Robot(8)
     robot.moveUp()
     expect(robot.position()).to.deep.equal([0, 1])
@@ -19,7 +19,7 @@ describe('Robot', () => {
     expect(robot.position()).to.deep.equal([0, 2])
   })
 
-  it('can move left', function() {
+  xit('can move left', function() {
     var robot = new Robot(8)
     robot.moveLeft()
     expect(robot.position()).to.deep.equal([-1, 0])
@@ -28,7 +28,7 @@ describe('Robot', () => {
     expect(robot.position()).to.deep.equal([-2, 0])
   })
 
-  it('can record their history', function() {
+  xit('can record their history', function() {
     robot = new Robot(8)
     expect(robot.history()).to.deep.equal([])
 

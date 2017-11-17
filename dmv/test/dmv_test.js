@@ -5,7 +5,6 @@ describe('DMV', () => {
   describe('#enter', () => {
     it('adds a customer to the line', () => {
       var dmv = new DMV(['Surly Steve', 'Angry Amy', 'Peeved Pete'])
-
       expect(dmv.customersInLine()).to.deep.equal([])
 
       dmv.enter("Drivin' Dave")
@@ -22,6 +21,11 @@ describe('DMV', () => {
 
     expect(dmv.currentCustomerFor("Surly Suneel")).to.equal(null);
 
+    // who is left in line
+    // which agent is assigned to which customer
+      // have an array of objects
+        // each object is the agent/customer pair
+
     dmv.nextCustomer();
     expect(dmv.currentCustomerFor("Surly Suneel")).to.equal("Drivin' Dave");
     expect(dmv.customersInLine()).to.deep.equal(["Speedy Spencer", "Talkin' Tammy"]);
@@ -36,7 +40,7 @@ describe('DMV', () => {
     expect(dmv.customersInLine()).to.deep.equal([]);
   });
 
-  it("allows you to resolve an issue, which frees an agent up for the next customer", ()=> {
+  xit("allows you to resolve an issue, which frees an agent up for the next customer", ()=> {
     var dmv = new DMV(["Surly Suneel", "Angry Angelica"]);
 
     dmv.enter("Skidding Skye");
