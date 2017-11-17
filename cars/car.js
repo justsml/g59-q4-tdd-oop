@@ -2,7 +2,7 @@ module.exports = Car
 
 function Car(mpg) {
   this.mpg = mpg
-  this.gallons = 0;
+  this.gallons = 0
   this.odometer = 0
   this.trips = []
 }

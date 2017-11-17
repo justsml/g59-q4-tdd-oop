@@ -12,14 +12,14 @@ Robot.prototype.position = function() {
   return this._position
 }
 
-Robot.prototype.moveLeft = function(x) {
+Robot.prototype.moveLeft = function(x = 1) {
   this._history.push('left')
-  this._position[0] = this._position[0] - 1;
+  this._position[0] -= x
 }
 
-Robot.prototype.moveUp = function(x) {
+Robot.prototype.moveUp = function(x = 1) {
   this._history.push('up')
-  this._position[1] = this._position[1] + 1;
+  this._position[1] += x
 }
 
 Robot.prototype.history = function() {
