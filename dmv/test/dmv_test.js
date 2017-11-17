@@ -36,6 +36,12 @@ describe('DMV', () => {
     expect(dmv.customersInLine()).to.deep.equal([]);
   });
 
+  it("dmv.nextCustomer throws error when no customers", ()=> {
+    var dmv = new DMV(["Surly Suneel", "Angry Angelica", "Peeved Petra"])
+
+    expect(() => dmv.nextCustomer()).to.throw('no customers')
+  });
+
   it("allows you to resolve an issue, which frees an agent up for the next customer", ()=> {
     var dmv = new DMV(["Surly Suneel", "Angry Angelica"]);
 
