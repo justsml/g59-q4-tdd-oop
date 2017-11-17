@@ -1,23 +1,41 @@
 function DMV(agents) {
     this.agents = agents,
-    this._customersInLine = [],
-    this._nextCustomer = null;
-    this._currentCustomerFor = {}
+    this.customers = [];
 }
 
 DMV.prototype.customersInLine = function () {
-    return this._customersInLine;
+    return this.customers
+        .filter(customer=>!customer.agent)
+        .map(customer=>customer.customer);
 };
-DMV.prototype.enter = function (person) {
-    return this._customersInLine.push(person)
+DMV.prototype.enter = function (customer) {
+    return this.customers.push({"customer": customer});
 };
-
 
 DMV.prototype.currentCustomerFor = function (agent) {
-    return this._currentCustomerFor[agent]= this._nextCustomer;
+
+    let customersServed = this.customers
+        .filter(customer=> customer.agent===agent);
+        if(customersServed.length===0){
+            return null;
+        }
+        return customersServed[0].customer;
 };
+
+// find customer without agent key
+// pick the last customer  (find bug)
+// find next agent (using modulo magic)
+// assign agent to the customer Object
 DMV.prototype.nextCustomer = function () {
-    return this._nextCustomer = this._customersInLine.shift()
+    let customersWithoutAgents = this.customers.filter(customer=>!customer.agent);
+
+    let agentIndex = customersWithoutAgents.length % this.agents.length;
+
+    let nextCustomer = customersWithoutAgents[0];
+
+    nextCustomer.agent = this.agents[agentIndex];
+console.log(this.customers)
+
 };
 
 
