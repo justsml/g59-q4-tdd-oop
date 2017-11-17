@@ -20,6 +20,7 @@ let thisCustomer = this._customersInLine.slice()
 this._currentCustomerFor
 };
 
+
 DMV.prototype.customersInLine = function() {
     return this._customersInLine
-};
+}
