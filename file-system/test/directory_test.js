@@ -61,23 +61,21 @@ describe('Directory', () => {
     directory.write('bar.txt', 'Hello world')
     directory.cp('bar.txt', 'foo.txt')
     directory.write('bar.txt', "I've changed")
-    // console.log(directory._ls)
-console.log("test: ", directory.mycat)
     expect(directory.cat('foo.txt')).to.equal('Hello world')
     console.log("test: ", directory._cat)
     expect(directory.cat('bar.txt')).to.equal("I've changed")
     expect(directory.ls()).to.deep.equal(['bar.txt', 'foo.txt'])
   })
-  //
-  // it('symlinks one object to another with ln_s', () => {
-  //   var directory = new Directory('workspace')
-  //
-  //   directory.write('bar.txt', 'Hello world')
-  //   directory.ln_s('bar.txt', 'foo.txt')
-  //   directory.write('bar.txt', "I've changed")
-  //
-  //   expect(directory.cat('foo.txt')).to.equal("I've changed")
-  //   expect(directory.cat('bar.txt')).to.equal("I've changed")
-  //   expect(directory.ls()).to.deep.equal(['bar.txt', 'foo.txt'])
-  // })
+
+  it('symlinks one object to another with ln_s', () => {
+    var directory = new Directory('workspace')
+
+    directory.write('bar.txt', 'Hello world')
+    directory.ln_s('bar.txt', 'foo.txt')
+    directory.write('bar.txt', "I've changed")
+
+    expect(directory.cat('foo.txt')).to.equal("I've changed")
+    expect(directory.cat('bar.txt')).to.equal("I've changed")
+    expect(directory.ls()).to.deep.equal(['bar.txt', 'foo.txt'])
+  })
 })
