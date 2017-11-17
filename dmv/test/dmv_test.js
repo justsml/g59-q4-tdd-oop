@@ -22,6 +22,11 @@ describe('DMV', () => {
 
     expect(dmv.currentCustomerFor("Surly Suneel")).to.equal(null);
 
+    // who is left in line
+    // which agent is assigned to which customer
+      // have an array of objects
+        // each object is the agent/customer pair
+
     dmv.nextCustomer();
     expect(dmv.currentCustomerFor("Surly Suneel")).to.equal("Drivin' Dave");
     expect(dmv.customersInLine()).to.deep.equal(["Speedy Spencer", "Talkin' Tammy"]);
