@@ -62,7 +62,7 @@ describe('Directory', () => {
 
     expect(directory.cat('foo.txt')).to.equal('Hello world')
     expect(directory.cat('bar.txt')).to.equal("I've changed")
-    expect(directory.ls()).to.deep.equal(['bar.txt', 'foo.txt'])
+    expect(directory.ls()).to.have.members(['bar.txt', 'foo.txt'])
   })
 
   it('symlinks one object to another with ln_s', () => {

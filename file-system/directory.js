@@ -16,8 +16,8 @@ Directory.prototype.ls_la = function() {
 }
 
 Directory.prototype.cat = function(fileName) {
-  this._ls.map(f_data => (f_data.file === fileName ? this._cat = f_data.data : this._cat = '')).toString()
-  return this._cat
+  let file = this._ls.find(f_data => (f_data.file === fileName))
+  return file.data
 }
 
 Directory.prototype.mv = function(fileName, newFileName) {
@@ -26,14 +26,21 @@ Directory.prototype.mv = function(fileName, newFileName) {
 }
 
 Directory.prototype.cp = function (originalName, copyName) {
-  var copy = {}
-  this._ls.map(f_data => (f_data.file === originalName ? Object.assign(copy, f_data) : f_data = f_data))
+  var originalFind = this._ls.find(f_data => (f_data.file === originalName))
+  var copy = Object.assign({}, originalFind)
   copy.file = copyName
+  this._ls.push(copy)
   return copy.data
 
 }
 
 Directory.prototype.write = function(file, data) {
-  this._ls.push({file, data})
+  let fileMatch = this._ls.find(f_data => (f_data.file === file))
+  console.log('fileMatch', fileMatch);
+  if (fileMatch) {
+    fileMatch.data = data
+  } else {
+    this._ls.push({file, data})
+  }
   this._ls_la.push(file + " - " + data.length)
 }
