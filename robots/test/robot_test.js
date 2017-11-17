@@ -2,7 +2,7 @@ var Robot = require('../robot')
 var expect = require('chai').expect
 
 describe('Robot', () => {
-  it('starts off at position 0,0 and the battery power given', () => {
+  xit('starts off at position 0,0 and the battery power given', () => {
     var robot = new Robot(17)
 
     expect(robot.position()).to.deep.equal([0, 0])

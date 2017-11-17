@@ -1,31 +1,23 @@
 function DMV(agents) {
   this.agents = agents;
   this.inLine = [];
-  this.assignedCustomers = [];
+  this.assignedCustomers = {};
 };
 
 DMV.prototype.customersInLine = function () {
+  return this.inLine;
+};
 
+DMV.prototype.enter = function (customer) {
+  return this.inLine.push(customer)
 };
 
 DMV.prototype.currentCustomerFor = function (agent) {
-
-for (var i=0; i<this.assignedCustomers.length; i++) {
-  var assignment = this.assignedCustomers[i]
-  if (this.assignedCustomers[i][agent] == agent) {
-    return assignment.customer
-    }
-}
-
-return null;
-
-// return this.assignedCustomers.filter((assignment) => {
-//   return assignment.agent == agent
-// })[0].customer;
-
+  this.assignedCustomers[this.agent] =
 };
 
 DMV.prototype.nextCustomer = function () {
+  // doesn't return anything
   // get next available agent
   var nextAvailableAgent =  this.agents.shift()
   // get the next customer in line
