@@ -13,6 +13,18 @@ describe('DMV', () => {
     })
   })
 
+  it('calling nextCustomer w/o enter throws error', () => {
+    var dmv = new DMV(["Surly Suneel", "Angry Angelica", "Peeved Petra"]);
+    expect(dmv.nextCustomer.bind(dmv)).to.throw('No customers')
+    expect(() => dmv.nextCustomer()).to.throw('No customers')
+  })
+
+  it('calling nextCustomer w/ enter returns customer', () => {
+    var dmv = new DMV(["Surly Suneel", "Angry Angelica", "Peeved Petra"]);
+    dmv.enter('Drivin\' Dave')
+    expect(dmv.nextCustomer().customer).to.equal('Drivin\' Dave')
+  })
+
   it("sends customers to the next available agent", ()=> {
     var dmv = new DMV(["Surly Suneel", "Angry Angelica", "Peeved Petra"]);
 
@@ -41,7 +53,9 @@ describe('DMV', () => {
 
     dmv.enter("Skidding Skye");
     dmv.enter("Drivin' Dave");
-    dmv.nextCustomer();
+    let next = dmv.nextCustomer()
+    expect(next.customer).to.equal("Skidding Skye");
+    expect(next.agent).to.equal("Surly Suneel");
     dmv.nextCustomer();
     expect(dmv.currentCustomerFor("Angry Angelica")).to.equal("Drivin' Dave");
 

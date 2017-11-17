@@ -19,13 +19,18 @@ DMV.prototype.currentCustomerFor = function(agent) {
 }
 
 DMV.prototype.nextCustomer = function() {
+  if (this.customers.length === 0) {
+    throw new Error('No customers')
+  }
   const currentCustomer = this.customers.shift()
-  this.agentList.find(agent => {
+  let currentAgent = null;
+  this.agentList.forEach(agent => {
     if (!this.attending[agent]) {
       this.attending[agent] = currentCustomer
-      return true
+      currentAgent = agent
     }
   })
+  return {agent: currentAgent, customer: currentCustomer}
 }
 
 DMV.prototype.resolve = function(customer) {
