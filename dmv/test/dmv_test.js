@@ -36,20 +36,20 @@ describe('DMV', () => {
     expect(dmv.customersInLine()).to.deep.equal([]);
   });
 
-  it("allows you to resolve an issue, which frees an agent up for the next customer", ()=> {
-    var dmv = new DMV(["Surly Suneel", "Angry Angelica"]);
-
-    dmv.enter("Skidding Skye");
-    dmv.enter("Drivin' Dave");
-    dmv.nextCustomer();
-    dmv.nextCustomer();
-    expect(dmv.currentCustomerFor("Angry Angelica")).to.equal("Drivin' Dave");
-
-    dmv.resolve("Drivin' Dave");
-    expect(dmv.currentCustomerFor("Angry Angelica")).to.equal(null);
-
-    dmv.enter("Texting Ty");
-    dmv.nextCustomer();
-    expect(dmv.currentCustomerFor("Angry Angelica")).to.equal("Texting Ty");
-  });
+//   it("allows you to resolve an issue, which frees an agent up for the next customer", ()=> {
+//     var dmv = new DMV(["Surly Suneel", "Angry Angelica"]);
+//
+//     dmv.enter("Skidding Skye");
+//     dmv.enter("Drivin' Dave");
+//     dmv.nextCustomer();
+//     dmv.nextCustomer();
+//     expect(dmv.currentCustomerFor("Angry Angelica")).to.equal("Drivin' Dave");
+//
+//     dmv.resolve("Drivin' Dave");
+//     expect(dmv.currentCustomerFor("Angry Angelica")).to.equal(null);
+//
+//     dmv.enter("Texting Ty");
+//     dmv.nextCustomer();
+//     expect(dmv.currentCustomerFor("Angry Angelica")).to.equal("Texting Ty");
+//   });
 })
