@@ -1,23 +1,18 @@
 module.exports = Car;
 
-function Car(mpg) {}
-
-Car.prototype.fill = function(gallons) {
-  this.gallons += gallons;
-};
-
-function Car({ make, model, year, fuel }) {
-  this.make = make;
-  this.model = model;
-  this.year = year;
-  this.fuel = fuel;
+function Car(mpg) {
+  this.gallons = 0;
+  this.mpgs = mpg;
+  this.odometer = 0;
+  this.trips = [];
 }
 
-Car.prototype.addFuel = function(fuel) {
-  this.fuel += fuel;
+Car.prototype.fill = function(gal) {
+  this.gallons += gal;
 };
 
-const ford = new Car({ make: 'Ford', model: 'Escape', year: 2013, fuel: 100 });
-
-ford.addFuel(10);
-console.log(ford.fuel);
+Car.prototype.drive = function(miles) {
+  this.gallons -= miles / this.mpgs;
+  this.odometer += miles;
+  this.trips.push(miles + ' miles');
+};
