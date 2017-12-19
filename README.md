@@ -11,6 +11,15 @@ Test driven OOP exercises.
 ```sh
 npm install
 ```
+### Installing Chai (mocha for testing)
+```sh
+npm install Chai
+```
+
+### Run Tests using mocha:
+```sh
+mocha '*/test/*test.js'
+```
 
 ### Run Test
 
@@ -23,4 +32,3 @@ npm test
 ### Here's your starting point:
 
 ![image](https://user-images.githubusercontent.com/397632/32767675-ac0bc6d0-c8d1-11e7-99eb-dbb51a413062.png)
-
