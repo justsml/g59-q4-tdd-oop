@@ -9,6 +9,9 @@ function Car({mpg, gallons, odometer, trips}) {
     this.trips = [];
     this.mpg = 10;
 }
+Car.prototype.fill = function(gallons) {
+    this.gallons += gallons;
+};
 
 
 Car.prototype.drive = function(distance) {
